@@ -27,7 +27,7 @@ LiDAR Input → ROI Filter → Ground Removal (RANSAC) → Clustering (DBSCAN)
 ## 🗺️ Roadmap
 
 ### 🔲 Phase 1 — Foundation
-- [ ] Project structure & centralized config (`params.yaml`)
+- [x] Project structure & centralized config (`params.yaml`)
 - [ ] Multi-source LiDAR loader (KITTI, nuScenes, PCD, Synthetic)
 - [ ] ROI filtering + voxel downsampling (Open3D)
 - [ ] Ground removal via RANSAC (Open3D `segment_plane`)
