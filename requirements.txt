@@ -1,0 +1,22 @@
+# ══════════════════════════════════════════════════════
+#  perception-bev — Requirements
+#  Requires Python 3.11
+#  Install Open3D via conda BEFORE pip:
+#  conda install -c open3d-admin -c conda-forge open3d
+# ══════════════════════════════════════════════════════
+
+# ── Core ──
+numpy>=1.24
+scipy>=1.10
+scikit-learn>=1.3
+PyYAML>=6.0
+
+# ── Visualization ──
+vtk>=9.2
+vedo>=2023.5.0
+
+# ── Tracking ──
+filterpy>=1.4.5
+
+# ── Camera / Vision ──
+opencv-python>=4.8

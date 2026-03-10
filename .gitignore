@@ -1,0 +1,79 @@
+# ══════════════════════════════════════════════════════
+#  perception-bev — .gitignore
+# ══════════════════════════════════════════════════════
+
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+*.egg
+dist/
+build/
+wheels/
+
+# ── Virtual environments ──
+.env
+.venv
+env/
+venv/
+ENV/
+perception_env/
+PerceptionTowardWorldModel/
+
+# ── LiDAR data (too large for Git) ──
+data/
+*.bin
+*.pcd
+*.bag
+*.rosbag
+*.npy
+*.npz
+
+# ── Datasets ──
+datasets/
+kitti/
+nuscenes/
+waymo/
+
+# ── Model weights ──
+*.pt
+*.pth
+*.onnx
+*.engine
+*.trt
+
+# ── Outputs ──
+outputs/
+results/
+*.png
+*.jpg
+*.jpeg
+*.mp4
+*.avi
+
+# ── Jupyter ──
+.ipynb_checkpoints/
+*.ipynb
+
+# ── IDE ──
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs ──
+*.log
+logs/
+
+# ── Config secrets ──
+.env.local
+secrets.yaml
