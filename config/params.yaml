@@ -1,0 +1,80 @@
+# ======================================
+# Perception-bev centralized configuration
+# ============================================
+
+# Region of interest
+roi:
+  x_min: -5.0  # behind ego vehicle
+  x_max: 40.0  # 40m ahead
+  y_min: -8.0 # right
+  y_max: 8.0  # left
+  z_min: -2.0  # below ground
+  z_max: 3.0   # Above roof
+
+# Lidar preprocessing
+lidar:
+  min_range: 1.5
+  max_range: 80.0
+  voxel_size: 0.15           # Voxel downsamplinig resolution
+  ground_z_threshold: -1.4   # Fallback z threshold if RANSAC unavailable
+
+# Ground removal (RANSAC)
+ground_removal:
+  distance_threshold: 0.25  # max distance to ground plane (meters)
+  ransac_n: 3         # minimum points to fit a plane
+  num_iterations: 100 # number of ransac iteration
+
+# Object detection (DBSCAN clustering)
+dbscan:
+  eps:          0.6    # max distances between neighbours
+  min_samples:  8      # minimum points to form a cluster
+  min_points:   5      # discard clusters smaller than this
+  max_points:   5000   # discard clusters larger than this
+
+# Bounding boxes size limits
+bbox:
+  min_size: [0.3, 0.3, 0.3]     # [length, width, height] min
+  max_size: [20.0, 8.0, 6.0]    # [length, width, height] max
+
+# Dimension-based classification
+classification:
+  car:        {l:[3.0, 6.0], w:[1.5, 2.5], h:[1.2, 2.2]}
+  truck:      {l:[6.0, 20.0], w:[2.0, 3.0], h:[2.0, 5.0]}
+  pedestrian: {l:[0.3, 1.0], w:[0.3, 1.0], h:[1.4, 2.2]}
+  cyclist:    {l:[1.0, 2.5], w:[0.5, 1.2], h:[1.2, 2.2]}
+  unkwown:    {}
+
+# Multi-Object tracking (MOT) --> KALMAn + HUNGARIAN
+tracking:
+  maxe_age:      5   # Frames before a lost track is deleted
+  min_hits:      2   # Frames before a track is confirmed
+  max_distances: 4.0 # mas association distance
+  dt:            0.1 # time step
+
+# Visualization VEDO split-screen
+bev:
+  canvas_size: [1600, 800]
+  range_m:     50             # visible radius in bev
+  fps_target:  20             # target refreh rate
+
+# Object colors (hex)
+colors:
+  car:        "#F5C518"   # yellow
+  truck:      "#FF6B35"   # orange
+  pedestrian: "#00D4FF"   # cyan
+  cyclist:    "#FF3CAC"   # magenta
+  unknown:    "#AAAAAA"   # gray
+  ego:        "#FFFFFF"   # white
+
+# Supported data sources
+sources:
+  kitti:
+    dtype: float32
+    cols: 4             # x, y, z, intensity
+  nuscenes:
+    dtype: float32
+    cols: 5             # x, y, z, intensity, ring_index
+  pcd: {}               # handled by Open3D
+  synthetic:
+    n_points: 25000     # points per frame
+    n_frames: 10000     # total frames
