@@ -29,11 +29,11 @@ LiDAR Input → ROI Filter → Ground Removal (RANSAC) → Clustering (DBSCAN)
 ### 🔲 Phase 1 — Foundation
 - [x] Project structure & centralized config (`params.yaml`)
 - [x] Multi-source LiDAR loader (KITTI, nuScenes, PCD, Synthetic)
-- [ ] ROI filtering + voxel downsampling (Open3D)
-- [ ] Ground removal via RANSAC (Open3D `segment_plane`)
-- [ ] Object clustering via DBSCAN (sklearn)
-- [ ] Dimension-based classification (car, truck, pedestrian, cyclist)
-- [ ] Drivable area extraction (Convex Hull on ground points)
+- [x] ROI filtering + voxel downsampling (Open3D)
+- [x] Ground removal via RANSAC (Open3D `segment_plane`)
+- [x] Object clustering via DBSCAN (sklearn)
+- [x] Dimension-based classification (car, truck, pedestrian, cyclist)
+- [x] Drivable area extraction (Convex Hull on ground points)
 - [ ] Kalman 6D filter per track `[x, y, z, vx, vy, vz]`
 - [ ] Hungarian algorithm for detection-to-track association
 - [ ] Split-screen BEV + Ego View visualizer (Vedo)
